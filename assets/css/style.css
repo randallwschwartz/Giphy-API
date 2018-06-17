@@ -1,0 +1,19 @@
+/* Style for Trivia Game */
+
+html, body {
+    /* font-family: Georgia, 'Times New Roman', Times, sans-serif; */
+    background-color: rgb(178, 221, 236);
+    /* background-image: url("../images/background.jpg"); */
+    height: 100%;
+    margin: 0;
+    border-style: none;
+    border: none;
+}
+
+
+#header {
+    background-color: blue;
+    color: white;
+    margin-left: 50 px;
+    margin-right:  50 px;
+}
