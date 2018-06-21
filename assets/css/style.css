@@ -2,10 +2,10 @@
 
 html, body {
     /* font-family: Georgia, 'Times New Roman', Times, sans-serif; */
-    background-color: rgb(178, 221, 236);
+    background-color: rgb(153, 214, 112);
     /* background-image: url("../images/background.jpg"); */
     height: 100%;
-    margin: 0;
+    margin: 10 px;
     border-style: none;
     border: none;
 }

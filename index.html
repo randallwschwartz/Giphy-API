@@ -40,149 +40,19 @@
       <div class="col-md-4">
         <form>
           <div class="form-group">
-            <label for="addName">Add a comedian</label>
-            <input type="text" class="form-control" id="person-input">
+            <label for="addName">Add A Comedian (or other topic):</label>
+            <input type="text" class="form-control" id="topic-input">
           </div>
           <br>
-          <button type="submit" id="add-person" class="btn btn-dark">Submit</button>
+          <button type="submit" id="add-topic" class="btn btn-dark">Submit</button>
         </form>
       </div>
     </div>
   </div>
  
 
-  <!-- <script src="assets/javascript/app.js"></script> -->
+  <script src="assets/javascript/app.js"></script>
 
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script type="text/javascript">
-
-    var topics = [
-      "Jon Stewart", 
-      "Stephen Colbert",
-      "Trevor Noah",
-      "Samantha Bee",
-      "Ed Helms",
-      "John Oliver",
-      "Steve Carell"
-    ];
-
-    function displayGifs(){
-
-      $("button").on("click", function() {
-        // Grabbing and storing the data-person property value from the button
-        var topic = $(this).attr("data-topic");
-
-        // Constructing a queryURL using the person name
-        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-          topic + "&api_key=551g6ZwVU4aDXlkzLo7L5ks7Fn1meegP&limit=10";
-
-        // Performing an AJAX request with the queryURL
-        $.ajax({
-          url: queryURL,
-          method: "GET"
-        }).then(function(response) {
-          console.log(queryURL);
-
-          console.log(response);
-          // storing the data from the AJAX request in the results variable
-          var results = response.data;
-
-          // Looping through each result item
-          for (var i = 0; i < results.length; i++) {
-
-            // Creating and storing a div tag
-            var topicDiv = $("<div class='person'>");
-
-            // var rating = response.rating;
-
-            // Creating a paragraph tag with the result item's rating
-            var p = $("<p>").text("Rating: " + results[i].rating);
-
-            // Creating and storing an image tag
-            var topicGif = $("<img>");
-
-            // Setting the src attribute of the image to a property pulled off the result item
-            topicGif.attr("src", results[i].images.fixed_height_still.url);
-            topicGif.attr("data-still", results[i].images.fixed_height_still.url);
-            topicGif.attr("data-animate", results[i].images.fixed_height.url);
-            topicGif.attr("data-state", "still");
-            topicGif.addClass("gif");
-
-            // Appending the paragraph and image tag to the animalDiv
-            topicDiv.append(topicGif);
-            topicDiv.append(p);
-
-            // Prependng the personDiv to the HTML page in the "#gifs-appear-here" div
-            $("#gifs-appear-here").prepend(topicDiv);
-          }
-
-        }); //end of ajax call
-      }); //end of on-click function
-    } //end of displayGifs function
-
-    // Function for displaying movie data
-    function renderButtons() {
-
-      // Deleting the people buttons prior to adding new buttons
-      // (this is necessary otherwise you will have repeat buttons)
-      $("#buttons-view").empty();
-
-      // Looping through the array of people
-      for (var i = 0; i < topics.length; i++) {
-
-        // Then dynamicaly generating buttons for each person in the array
-        // This code $("<button>") is all jQuery needs to create the beginning and end tag. (<button></button>)
-        var a = $("<button>");
-        // Adding a class of movie-btn to our button
-        a.addClass("person-btn btn btn-dark");
-        // Adding a data-attribute
-        a.attr("data-topic", topics[i]);
-        // Providing the initial button text
-        a.text(topics[i]);
-        // Adding the button to the buttons-view div
-        $("#buttons-view").append(a);
-      }
-    }
-
-    // This function handles events where a movie button is clicked
-    $("#add-person").on("click", function(event) {
-      event.preventDefault();
-      // This line grabs the input from the textbox
-      var topic = $("#person-input").val().trim();
-      console.log(topic);
-
-      // Adding movie from the textbox to our array
-      topics.push(topic);
-      console.log(topics);
-
-      // Calling renderButtons which handles the processing of our people array
-      renderButtons();
-    });
-
-    // Adding a click event listener to all elements with a class of "person-btn"
-    $(document).on("click", ".person-btn", displayGifs);
-
-    $("body").on("click", ".gif", function() {
-      // The attr jQuery method allows us to get or set the value of any attribute on our HTML element
-      var state = $(this).attr("data-state");
-      // If the clicked image's state is still, update its src attribute to what its data-animate value is.
-      // Then, set the image's data-state to animate
-      // Else set src to the data-still value
-      if (state === "still") {
-        $(this).attr("src", $(this).attr("data-animate"));
-        $(this).attr("data-state", "animate");
-      } else {
-        $(this).attr("src", $(this).attr("data-still"));
-        $(this).attr("data-state", "still");
-      }
-    });
-
-
-    // Calling the renderButtons function to display the intial buttons
-    renderButtons();
-
-  </script>
 
 </body>
 
