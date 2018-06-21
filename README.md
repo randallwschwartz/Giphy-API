@@ -1,1 +1,3 @@
 # Giphy-API
+
+What this project does: This page allows a user to select a topic and request 10 gifs related to the topic using the Giphy API.  The page includes a number of preexisting buttons associated with comedians from The Daily Show.  The user can click one of these buttons to view gifs associated with that comedian.  The user can also add new buttons to request gifs for other comedians, or other topics.  Each requested gif is originally displayed in static form.  By clicking on the gif, the user can play the video clip.  By clicking again, the user can return to a static image.
